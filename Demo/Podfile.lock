@@ -1,0 +1,16 @@
+PODS:
+  - tgpABTest (0.0.1)
+
+DEPENDENCIES:
+  - tgpABTest (from `../`)
+
+EXTERNAL SOURCES:
+  tgpABTest:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  tgpABTest: 4cf627b1304051879bcb7185edc83624495dfde3
+
+PODFILE CHECKSUM: 82c8df9f02bf75f7af327f1d0d3345eb1ca7ee96
+
+COCOAPODS: 1.9.1
