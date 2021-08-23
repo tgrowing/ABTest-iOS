@@ -23,12 +23,6 @@
     
     NSString *appid = [[NSUserDefaults standardUserDefaults] objectForKey:@"appid"];
     NSString *userid = [[NSUserDefaults standardUserDefaults] objectForKey:@"userid"];
-    if (!appid) {
-        appid = @"a123456789foriOs";
-    }
-    if (!userid) {
-        userid = @"1181417742";
-    }
     self.appidTextField.text = appid;
     self.useridTextField.text = userid;
     
@@ -43,7 +37,7 @@
 
 
 - (IBAction) testBtn2Click:(id)sender {
-    NSString *expName = self.testTextField.text;
+    NSString *expName = self.testTextField2.text;
     [[RomaABSDK defaultSDK] getExpByNameWithReport:expName completeHandler:^(RomaExp* exp) {
         dispatch_async(dispatch_get_main_queue(), ^{
             self.resultLabel.text = [exp description];
@@ -54,9 +48,8 @@
 - (IBAction) testBtn3Click:(id)sender {
     NSString *userid = self.testTextField3.text;
     [[RomaABSDK defaultSDK] switchUser:userid completeHandler:^(BOOL rst) {
-        RomaExp* exp = [[RomaABSDK defaultSDK] getCachedExp:@"exp_p2"];
         dispatch_async(dispatch_get_main_queue(), ^{
-            self.resultLabel.text = [exp description];
+            self.resultLabel.text = [NSString stringWithFormat:@"切换用户%@", rst ? @"成功" : @"失败"];
         });
     }];
 }
