@@ -5,7 +5,7 @@ platform :ios, '9.0'
 target 'Demo' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-
-  pod 'tgpABTest', '~> 0.0.1'
+  
+  pod 'tgpABTest', :path=> '../'
 
 end
