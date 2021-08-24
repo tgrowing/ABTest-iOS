@@ -18,10 +18,6 @@
     NSString *appid = [[NSUserDefaults standardUserDefaults] objectForKey:@"appid"];
     NSString *userid = [[NSUserDefaults standardUserDefaults] objectForKey:@"userid"];
     
-    appid = @"a71b197a692461cc155c054177c7fda5";
-    userid = @"111111";
-
-    
     dispatch_queue_t serialQueue = dispatch_queue_create("initQueue", DISPATCH_QUEUE_SERIAL);
     
     dispatch_async(serialQueue, ^{
