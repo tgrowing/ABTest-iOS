@@ -33,6 +33,7 @@
     NSString *expName = self.testTextField.text;
     RomaExp* exp = [[RomaABSDK defaultSDK] getCachedExpAndReport:expName];
     self.resultLabel.text = [exp description];
+    [self.testTextField resignFirstResponder];
 }
 
 
@@ -43,6 +44,7 @@
             self.resultLabel.text = [exp description];
         });
     }];
+    [self.testTextField2 resignFirstResponder];
 }
 
 - (IBAction) testBtn3Click:(id)sender {
@@ -52,6 +54,7 @@
             self.resultLabel.text = [NSString stringWithFormat:@"切换用户%@", rst ? @"成功" : @"失败"];
         });
     }];
+    [self.testTextField3 resignFirstResponder];
 }
 
 
@@ -62,6 +65,9 @@
     [[NSUserDefaults standardUserDefaults] setObject:appid forKey:@"appid"];
     [[NSUserDefaults standardUserDefaults] setObject:userid forKey:@"userid"];
     [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    [self.appidTextField resignFirstResponder];
+    [self.useridTextField resignFirstResponder];
 }
 
 
