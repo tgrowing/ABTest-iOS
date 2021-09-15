@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "tgpABTest"
-  spec.version      = "0.0.1"
+  spec.version      = "0.0.2"
   spec.summary      = "tgp abtest framework, aim to growth."
 
   # This description is used to generate tags and improve search results.
