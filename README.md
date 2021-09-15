@@ -5,12 +5,18 @@
 * Xcode 10.0+
 
 ## SDK集成
+SDK提供两种集成方式供iOS开发者选择：
+- 通过CocoaPods集成
+- 手动集成 TAB iOS SDK 
 
-* 通过 CocoaPods 安装，在 podfile 里添加：
+### 通过 CocoaPods 安装，在 podfile 里添加：
 
 ```
 pod 'tgpABTest', '~> x.x.x'
 ```
+### 手动集成
+1. 拖拽 romaabtest.framework文件到Xcode工程内(请勾选Copy items if neeeded)
+2. 添加依赖库 SystemConfiguration.framework Security.framework
 
 ## SDK使用
 
