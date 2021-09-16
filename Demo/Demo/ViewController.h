@@ -20,6 +20,8 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *useridTextField;
 
+@property (weak, nonatomic) IBOutlet UITextField *eventCodeTextField;
+
 @property (weak, nonatomic) IBOutlet UIButton *saveBtn;
 
 @property (weak, nonatomic) IBOutlet UILabel *resultLabel;

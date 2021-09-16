@@ -70,5 +70,18 @@
     [self.useridTextField resignFirstResponder];
 }
 
+- (IBAction)onEventButtonClick:(id)sender {
+    NSString *expName = self.testTextField2.text;
+    NSString *event = self.eventCodeTextField.text;
+    NSLog(@"eventBtnClicked, expName:%@, event:%@", expName, event);
+    [[RomaABSDK defaultSDK] getExpByName:expName completeHandler:^(RomaExp* exp) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSLog(@"eventBtnClicked, exp:%@", exp);
+            [[RomaABSDK defaultSDK] reportExpAction:event withExp:exp];
+            self.resultLabel.text = [NSString stringWithFormat:@"exp: %@, event: %@", [exp description], event];
+        });
+    }];
+    [self.eventCodeTextField resignFirstResponder];
+}
 
 @end
