@@ -13,6 +13,8 @@ SDK提供两种集成方式供iOS开发者选择：
 
 ```
 pod 'tgpABTest', '~> x.x.x'
+// 如：
+pod 'tgpABTest', '~> 0.0.3'
 ```
 ### 手动集成
 1. 拖拽 romaabtest.framework文件到Xcode工程内(请勾选Copy items if neeeded)
@@ -158,18 +160,6 @@ SDK默认会设置一些属性，可以直接用来配置标签实验
  [deviceSDK initWIthAppId:@"***" appKey:@"***" guid:@"abc-deg-ddd"];
 ```
 
-## SDK 数据
-
-### 包大小
-
-静态库，大小为1Mb，包含arm64 armv7 i386 x86_64
-测试应用(armv7 arm64)使用sdk增加189kb
-
-### 内存消耗
-
-iphone5, 测试应用，大约增加0.81Mb的内存消耗。
-测试无Leak
-
-### License
+##  License
 
 ISC
