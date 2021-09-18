@@ -37,12 +37,10 @@
 /* Begin PBXFileReference section */
 		06CF96C99F911368F10ED8D66BE3BA69 /* Pods-Demo-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Demo-acknowledgements.plist"; sourceTree = "<group>"; };
 		072A4B36BD64A7BC8EC60AD01C67873F /* Pods-Demo-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Demo-acknowledgements.markdown"; sourceTree = "<group>"; };
-		26CBB5DAA04CAC9131DDD89726AE4D9D /* tgpABTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = tgpABTest.release.xcconfig; sourceTree = "<group>"; };
+		0779B6113C2A138443DDA34189E08409 /* tgpABTest.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = tgpABTest.xcconfig; sourceTree = "<group>"; };
+		2491BB36539C47858CE4445E1EF9294C /* romaabtest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = romaabtest.framework; sourceTree = "<group>"; };
 		3212113385A8FBBDB272BD23C409FF61 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		3BDF9BE81E31948F118BF8B8227BE487 /* tgpABTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = tgpABTest.debug.xcconfig; sourceTree = "<group>"; };
 		53DF39A2D91E32DF9FB000BCBA235713 /* Pods-Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Demo.debug.xcconfig"; sourceTree = "<group>"; };
-		659150DBB568FD98A1EB760C9B1C2B2B /* romaabtest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = romaabtest.framework; sourceTree = "<group>"; };
-		69AFA959AAF017F232A27D46A775F994 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
 		92477FDE431147D43F1DBB6A3D26EF40 /* Pods-Demo-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Demo-umbrella.h"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9F56DBA9BF6C4CF1F1A0FAED462EA462 /* Pods-Demo-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Demo-dummy.m"; sourceTree = "<group>"; };
@@ -50,7 +48,6 @@
 		C89582433D29E230F1413E403BFF1249 /* Pods-Demo-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Demo-Info.plist"; sourceTree = "<group>"; };
 		F5CF31158D0D84E1FF4D685A6268FDC7 /* Pods-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Demo.release.xcconfig"; sourceTree = "<group>"; };
 		F7A16DCD579440AF0A04BFD83E50707C /* Pods-Demo.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Demo.modulemap"; sourceTree = "<group>"; };
-		FD8658725A2B8A61A531C8DFEDB023EA /* tgpABTest.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = tgpABTest.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,22 +78,31 @@
 			path = "Target Support Files/Pods-Demo";
 			sourceTree = "<group>";
 		};
-		936CF17A1458AE89ED4765D945477F42 /* Support Files */ = {
+		548730E68B2D51A68C0E11F767602CB8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3BDF9BE81E31948F118BF8B8227BE487 /* tgpABTest.debug.xcconfig */,
-				26CBB5DAA04CAC9131DDD89726AE4D9D /* tgpABTest.release.xcconfig */,
-			);
-			name = "Support Files";
-			path = "Demo/Pods/Target Support Files/tgpABTest";
-			sourceTree = "<group>";
-		};
-		AA68B7D0351960FBA30E5E82C620DA68 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				659150DBB568FD98A1EB760C9B1C2B2B /* romaabtest.framework */,
+				2491BB36539C47858CE4445E1EF9294C /* romaabtest.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		706EE5E9CC995536B64C98C5EFA7B0DA /* tgpABTest */ = {
+			isa = PBXGroup;
+			children = (
+				548730E68B2D51A68C0E11F767602CB8 /* Frameworks */,
+				952071F83F66CD04A9FB006D077EEF18 /* Support Files */,
+			);
+			name = tgpABTest;
+			path = tgpABTest;
+			sourceTree = "<group>";
+		};
+		952071F83F66CD04A9FB006D077EEF18 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				0779B6113C2A138443DDA34189E08409 /* tgpABTest.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/tgpABTest";
 			sourceTree = "<group>";
 		};
 		B855E81AB53749CDEDD1308377350FC4 /* Targets Support Files */ = {
@@ -119,8 +125,8 @@
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				FDC85297EFAA584F53E7ED945BB636AF /* Development Pods */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				ED4E50EEF3EFF8348B527B0BBB4B080B /* Pods */,
 				F23EFC7AA6F650B5661ECE8F1239E974 /* Products */,
 				B855E81AB53749CDEDD1308377350FC4 /* Targets Support Files */,
 			);
@@ -134,13 +140,12 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		D3C8CD7230AC66E9C839C357C2DEF11F /* Pod */ = {
+		ED4E50EEF3EFF8348B527B0BBB4B080B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				69AFA959AAF017F232A27D46A775F994 /* README.md */,
-				FD8658725A2B8A61A531C8DFEDB023EA /* tgpABTest.podspec */,
+				706EE5E9CC995536B64C98C5EFA7B0DA /* tgpABTest */,
 			);
-			name = Pod;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		F23EFC7AA6F650B5661ECE8F1239E974 /* Products */ = {
@@ -149,25 +154,6 @@
 				C694DE63ED5EAB66E3CA6D184271692B /* Pods_Demo.framework */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		F2B53969BCDCD47853EE07621924EE71 /* tgpABTest */ = {
-			isa = PBXGroup;
-			children = (
-				AA68B7D0351960FBA30E5E82C620DA68 /* Frameworks */,
-				D3C8CD7230AC66E9C839C357C2DEF11F /* Pod */,
-				936CF17A1458AE89ED4765D945477F42 /* Support Files */,
-			);
-			name = tgpABTest;
-			path = ../..;
-			sourceTree = "<group>";
-		};
-		FDC85297EFAA584F53E7ED945BB636AF /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				F2B53969BCDCD47853EE07621924EE71 /* tgpABTest */,
-			);
-			name = "Development Pods";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,9 +285,9 @@
 			};
 			name = Debug;
 		};
-		1ABCED93CBAF6A22A111E1C94285EC3C /* Debug */ = {
+		8CC788C51B166F9F1ED3F16247F99FAE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3BDF9BE81E31948F118BF8B8227BE487 /* tgpABTest.debug.xcconfig */;
+			baseConfigurationReference = 0779B6113C2A138443DDA34189E08409 /* tgpABTest.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -312,8 +298,9 @@
 				);
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 			};
-			name = Debug;
+			name = Release;
 		};
 		8F17DC3A99F99FBAD606CE6963886315 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -477,9 +464,9 @@
 			};
 			name = Release;
 		};
-		F1650FD433A4B6819070F4F7AA0E2C1F /* Release */ = {
+		E364A914E2D87920DAB8B37912AED848 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 26CBB5DAA04CAC9131DDD89726AE4D9D /* tgpABTest.release.xcconfig */;
+			baseConfigurationReference = 0779B6113C2A138443DDA34189E08409 /* tgpABTest.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -490,9 +477,8 @@
 				);
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 			};
-			name = Release;
+			name = Debug;
 		};
 /* End XCBuildConfiguration section */
 
@@ -518,8 +504,8 @@
 		9FEE3F8EA50D1EA8599BBBE4E5EA7C52 /* Build configuration list for PBXAggregateTarget "tgpABTest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1ABCED93CBAF6A22A111E1C94285EC3C /* Debug */,
-				F1650FD433A4B6819070F4F7AA0E2C1F /* Release */,
+				E364A914E2D87920DAB8B37912AED848 /* Debug */,
+				8CC788C51B166F9F1ED3F16247F99FAE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

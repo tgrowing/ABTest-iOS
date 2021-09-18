@@ -1,4 +1,4 @@
-# tgpABTest
+# ABTest-iOS
 
 ## 环境
 * iOS 9.0+
@@ -36,13 +36,14 @@ pod 'tgpABTest', '~> 0.0.3'
 在工程AppDelegate.m的application:didFinishLaunchingWithOptions:方法中初始化：
 
 ```
-// 初始化，并从本地缓存中加载实验数据完成
-[RomaABSDK defaultSDK] initWithAppId:@"TAB appid" 
-                                guid:@"用户userid"]; 
+// 初始化sdk, appkey, 从abtest.qq.com平台获取，userid代表用户身份标识
+// guid默认为User_Unit_Type_UserId，可以通过接口设置为User_Unit_Type_Qimei
+[RomaABSDK defaultSDK] initWithAppKey:@"申请的appkey" 
+                               userId:@"用户的唯一id"]; 
 
-// 带有加载数据完成的回调
-[[RomaABSDK defaultSDK] initWithAppId:@"TAB appid" 
-                                 guid:@"用户userid"
+// 初始化sdk, 带有加载数据完成的回调
+[[RomaABSDK defaultSDK] initWithAppKey:@"申请的appkey" 
+                                userId:@"用户的唯一id"
                       completeHandler:
 ^(BOOL result) {
     NSLog(@"SDK加载实验数据完成 %d", result);
@@ -50,7 +51,7 @@ pod 'tgpABTest', '~> 0.0.3'
 
 
 // 如果用户发生登陆切换，可以调用该APi
-[sdk switchUser:@"newUserId" completeHandler:^(BOOL result) {
+[[RomaABSDK defaultSDK] switchUser:@"newUserId" completeHandler:^(BOOL result) {
     NSLog(@"SDK切换实验数据完成 %d", result);
 }];
 ```
@@ -75,7 +76,7 @@ pod 'tgpABTest', '~> 0.0.3'
 
 ```
 
-2. 通过实验标识获取实验数据，不会上报实验曝光。
+2. 通过实验标识获取实验数据，如果没有则异步从后台请求实验数据，不会上报实验曝光。
 
 ```
 [sdk getExpByName:@"myExpTest" completeHandler^(RomaExp* exp] {
@@ -109,7 +110,7 @@ SDK会默认上报实验曝光事件，其他事件建议使用灯塔SDK进行�
 [[RomaABSDK defaultSDK] reportExpExpose:exp];
 ```
 
-2. 上报实验事件
+2. 上报实验反馈事件
 
 ```
 [[RomaABSDK defaultSDK] reportExpAction:@"eventCode" withExp:exp];
@@ -137,27 +138,13 @@ SDK默认会设置一些属性，可以直接用来配置标签实验
 
 ```
     "ROMA_BUNDLE_NAME" : "abtest_demo",
-    "ROMA_BUNDLE_SHORT_VER" : "1.0",
-    "ROMA_DEV_RESOLUTION" : "414*896",
+    "ROMA_RESOLUTION" : "414*896",
     "ROMA_PLATFORM" : "iOS",
     "ROMA_OS_VER" : "13.3 (18E227)",
     "ROMA_OS_MODEL" : "x86_64",
     "ROMA_BUNDLE_VER" : "1",
-    "ROMA_OS_VER_FLOAT" : "13.3",
+    "ROMA_OS_SHORT_VER" : "13.3",
     "ROMA_BUNDLE_ID" : "com.tencent.roma.abtest-demo"
-```
-
-### 多实例
-
-```
- // 在一些应用的首屏，用户可能还没有登录，为了完成实验的覆盖，一般可以采用设备id类型的o用户体系
- // 如果有这两类的体系实验，建议使用两个sdk实例完成，做不同类型的实验的实验使用不同的sdk实例完成
- // 例如：
- RomaABSDK* userSDK = [RomaABSDK getInstance:@"userType"];
- [userSDK initWIthAppId:@"***" appKey:@"***" guid:@"1234456"];
- 
- RomaABSDK* deviceSDK = [RomaABSDK getInstance:@"deviceType"];
- [deviceSDK initWIthAppId:@"***" appKey:@"***" guid:@"abc-deg-ddd"];
 ```
 
 ##  License
