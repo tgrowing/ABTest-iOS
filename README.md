@@ -14,7 +14,7 @@ SDK提供两种集成方式供iOS开发者选择：
 ```
 pod 'tgpABTest', '~> x.x.x'
 // 如：
-pod 'tgpABTest', '~> 0.0.3'
+pod 'tgpABTest', '~> 0.0.4'
 ```
 ### 手动集成
 1. 拖拽 romaabtest.framework文件到Xcode工程内(请勾选Copy items if neeeded)
