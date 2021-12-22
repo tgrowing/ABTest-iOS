@@ -22,7 +22,7 @@
     
     dispatch_async(serialQueue, ^{
         
-        [[RomaABSDK defaultSDK] setUseTest:YES];
+        [[RomaABSDK defaultSDK] setUseTest:FALSE];
         [RomaABSDK setLogLevel:10];
         
         // 初始化实验相关
