@@ -10,6 +10,10 @@
 
 @interface ViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UITextField *reportUrlTextField;
+
+@property (weak, nonatomic) IBOutlet UITextField *strategyUrlTextField;
+
 @property (weak, nonatomic) IBOutlet UITextField *testTextField;
 
 @property (weak, nonatomic) IBOutlet UITextField *testTextField2;

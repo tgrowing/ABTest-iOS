@@ -15,6 +15,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    NSString *reportUrl = [[NSUserDefaults standardUserDefaults] objectForKey:@"reportUrl"];
+    NSString *strategyUrl = [[NSUserDefaults standardUserDefaults] objectForKey:@"strategyUrl"];
     NSString *appid = [[NSUserDefaults standardUserDefaults] objectForKey:@"appid"];
     NSString *userid = [[NSUserDefaults standardUserDefaults] objectForKey:@"userid"];
     
@@ -22,16 +24,28 @@
     
     dispatch_async(serialQueue, ^{
         
-        [[RomaABSDK defaultSDK] setUseTest:FALSE];
         [RomaABSDK setLogLevel:10];
         
         // 初始化实验相关
-        [[RomaABSDK defaultSDK] initWithAppKey:appid
-                                        userId:userid
-                              completeHandler:^(BOOL result) {
-            NSLog(@"Roma AB Iint %d", result);
-            
-        }];
+        if (reportUrl.length == 0 && strategyUrl.length == 0)
+        {
+            // 公有云接入，走默认saas地址，无需自己设置
+            [[RomaABSDK defaultSDK] initWithAppKey:appid
+                                            userId:userid
+                                  completeHandler:^(BOOL result) {
+                NSLog(@"Saas roma AB Iint %d", result);
+            }];
+        }
+        else {
+            // 私有化部署，必须设置上报服务地址和拉取实验服务地址
+            [[RomaABSDK defaultSDK] initWithReportUrl:reportUrl
+                                          strategyUrl:strategyUrl
+                                               AppKey:appid
+                                               userId:userid
+                                      completeHandler:^(BOOL result) {
+                NSLog(@"Private roma AB Iint %d", result);
+            }];
+        }
         
     });
     

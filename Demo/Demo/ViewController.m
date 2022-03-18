@@ -21,8 +21,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    NSString *reportUrl = [[NSUserDefaults standardUserDefaults] objectForKey:@"reportUrl"];
+    NSString *strategyUrl = [[NSUserDefaults standardUserDefaults] objectForKey:@"strategyUrl"];
     NSString *appid = [[NSUserDefaults standardUserDefaults] objectForKey:@"appid"];
     NSString *userid = [[NSUserDefaults standardUserDefaults] objectForKey:@"userid"];
+    
+    self.reportUrlTextField.text = reportUrl;
+    self.strategyUrlTextField.text = strategyUrl;
     self.appidTextField.text = appid;
     self.useridTextField.text = userid;
     
@@ -59,13 +64,19 @@
 
 
 - (IBAction)onSaveButtonClick:(UIButton *)sender {
+    NSString *reportUrl = self.reportUrlTextField.text;
+    NSString *strategyUrl = self.strategyUrlTextField.text;
     NSString *appid = self.appidTextField.text;
     NSString *userid = self.useridTextField.text;
     
+    [[NSUserDefaults standardUserDefaults] setObject:reportUrl forKey:@"reportUrl"];
+    [[NSUserDefaults standardUserDefaults] setObject:strategyUrl forKey:@"strategyUrl"];
     [[NSUserDefaults standardUserDefaults] setObject:appid forKey:@"appid"];
     [[NSUserDefaults standardUserDefaults] setObject:userid forKey:@"userid"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
+    [self.reportUrlTextField resignFirstResponder];
+    [self.strategyUrlTextField resignFirstResponder];
     [self.appidTextField resignFirstResponder];
     [self.useridTextField resignFirstResponder];
 }
