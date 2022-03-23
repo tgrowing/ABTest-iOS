@@ -79,6 +79,9 @@
     [self.strategyUrlTextField resignFirstResponder];
     [self.appidTextField resignFirstResponder];
     [self.useridTextField resignFirstResponder];
+    
+    // 保存后主动退出，避免测试未手动重启。
+    exit(1);
 }
 
 - (IBAction)onEventButtonClick:(id)sender {
