@@ -7,6 +7,6 @@ target 'Demo' do
   use_frameworks!
   
   # pod 'tgpABTest', :path=> '../'
-  pod 'tgpABTest', '~> 0.0.5'
+  pod 'tgpABTest', '~> 2.1.0'
 
 end
