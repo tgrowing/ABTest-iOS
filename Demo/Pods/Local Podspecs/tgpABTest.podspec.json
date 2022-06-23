@@ -1,6 +1,6 @@
 {
   "name": "tgpABTest",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "summary": "tgp abtest framework, aim to growth.",
   "description": "tgp abtest framework, help customers grow.",
   "homepage": "https://github.com/tgrowing",
@@ -16,7 +16,13 @@
   },
   "source": {
     "git": "https://github.com/tgrowing/tgpABTest.git",
-    "tag": "0.0.1"
+    "tag": "0.0.4"
   },
-  "vendored_frameworks": "romaabtest.framework"
+  "vendored_frameworks": "romaabtest.framework",
+  "pod_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  },
+  "user_target_xcconfig": {
+    "EXCLUDED_ARCHS[sdk=iphonesimulator*]": "arm64"
+  }
 }

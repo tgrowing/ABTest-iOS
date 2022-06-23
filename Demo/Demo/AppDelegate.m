@@ -32,8 +32,8 @@
             // 公有云接入，走默认saas地址，无需自己设置
             [[RomaABSDK defaultSDK] initWithAppKey:appid
                                             userId:userid
-                                  completeHandler:^(BOOL result) {
-                NSLog(@"Saas roma AB Iint %d", result);
+                                  completeHandler:^(BOOL result,NSString *errMsg) {
+                NSLog(@"Saas roma AB Iint %d errMsg: %@", result, errMsg);
             }];
         }
         else {
@@ -42,8 +42,8 @@
                                           strategyUrl:strategyUrl
                                                AppKey:appid
                                                userId:userid
-                                      completeHandler:^(BOOL result) {
-                NSLog(@"Private roma AB Iint %d", result);
+                                      completeHandler:^(BOOL result, NSString *errMsg) {
+                NSLog(@"Private roma AB Iint %d errMsg: %@", result, errMsg);
             }];
         }
         

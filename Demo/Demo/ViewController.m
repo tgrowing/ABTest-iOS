@@ -44,7 +44,7 @@
 
 - (IBAction) testBtn2Click:(id)sender {
     NSString *expName = self.testTextField2.text;
-    [[RomaABSDK defaultSDK] getExpByNameWithReport:expName completeHandler:^(RomaExp* exp) {
+    [[RomaABSDK defaultSDK] getExpByNameWithReport:expName completeHandler:^(RomaExp* exp,NSString *errMsg) {
         dispatch_async(dispatch_get_main_queue(), ^{
             self.resultLabel.text = [exp description];
         });
@@ -54,7 +54,7 @@
 
 - (IBAction) testBtn3Click:(id)sender {
     NSString *userid = self.testTextField3.text;
-    [[RomaABSDK defaultSDK] switchUser:userid completeHandler:^(BOOL rst) {
+    [[RomaABSDK defaultSDK] switchUser:userid completeHandler:^(BOOL rst, NSString *errMsg) {
         dispatch_async(dispatch_get_main_queue(), ^{
             self.resultLabel.text = [NSString stringWithFormat:@"切换用户%@", rst ? @"成功" : @"失败"];
         });
@@ -88,7 +88,7 @@
     NSString *expName = self.testTextField2.text;
     NSString *event = self.eventCodeTextField.text;
     NSLog(@"eventBtnClicked, expName:%@, event:%@", expName, event);
-    [[RomaABSDK defaultSDK] getExpByName:expName completeHandler:^(RomaExp* exp) {
+    [[RomaABSDK defaultSDK] getExpByName:expName completeHandler:^(RomaExp* exp,NSString *errMsg) {
         dispatch_async(dispatch_get_main_queue(), ^{
             NSLog(@"eventBtnClicked, exp:%@", exp);
             [[RomaABSDK defaultSDK] reportExpAction:event withExp:exp];

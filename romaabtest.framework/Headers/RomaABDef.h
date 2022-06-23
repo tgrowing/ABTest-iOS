@@ -19,8 +19,8 @@ typedef enum {
 #define DEFAULT_EXP_ASSIGNMENT @"default"
 
 // 请求完成的回调，结果中会通知请求是否成功
-typedef void (^RomaRequestFinish)(BOOL result);
+typedef void (^RomaRequestFinish)(BOOL result, NSString *errMsg);
 // 异步加载实验请求回调，会返回一个实验对象（失败返回缓存的对象，缓存无则返回默认对象）
-typedef void (^RomaLoadExpFinish)(RomaExp*);
+typedef void (^RomaLoadExpFinish)(RomaExp *exp, NSString *errMsg);
 
 #endif /* RomaABDef_h */

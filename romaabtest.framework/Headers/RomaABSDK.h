@@ -19,23 +19,43 @@ NS_ASSUME_NONNULL_BEGIN
 // 日志级别，比如10
 +(void) setLogLevel:(int) level;
 
-//获取默认sdk实例
+// 获取默认sdk实例
 +(RomaABSDK*) defaultSDK;
+
 // 设置一个单独的key，获取一个对应的实例。主要是支持多个业务使用SDK
 +(RomaABSDK*) getInstance:(NSString*) instanceKey;
 
-// 用户上报通道，默认采用atta自建通道
-+ (void)setEnableBeacon:(bool)enable;
-+ (bool)getEnableBeacon;
-
-// 初始化sdk, appkey, 从abtest.qq.com平台获取，userid代表用户身份标识
-// guid默认为User_Unit_Type_UserId，可以通过接口设置为User_Unit_Type_Qimei
+/**
+ * 初始化sdk
+ * 上报地址和策略实验服务默认为公有云SAAS地址
+ * appkey, 从abtest.qq.com平台获取，userid代表用户身份标识
+ * guid默认为User_Unit_Type_UserId，可以通过接口设置为User_Unit_Type_Qimei
+ */
 -(bool) initWithAppKey:(NSString*) appKey
                 userId:(NSString*) userId;
+
+/**
+ * 初始化sdk
+ * 上报地址和策略实验服务为私有化部署
+ * appkey, 从abtest.qq.com平台获取，userid代表用户身份标识
+ * guid默认为User_Unit_Type_UserId，可以通过接口设置为User_Unit_Type_Qimei
+ */
+-(bool) initWithReportUrl:(NSString *)reportUrl
+              strategyUrl:(NSString *)strategyUrl
+                   AppKey:(NSString *)appKey
+                   userId:(NSString *)userId;
+
 // with callback
--(bool) initWithAppKey:(NSString*) appKey
-                userId:(NSString*) userId
-      completeHandler:(RomaRequestFinish _Nullable) handler;
+- (bool)initWithAppKey:(NSString *)appKey
+                userId:(NSString *)userId
+       completeHandler:(RomaRequestFinish)handler;
+
+-(bool) initWithReportUrl:(NSString *)reportUrl
+              strategyUrl:(NSString *)strategyUrl
+                   AppKey:(NSString *)appKey
+                   userId:(NSString *) userId
+          completeHandler:(RomaRequestFinish)handler;
+
 // 是否初始化完成
 - (bool) isInited;
 
@@ -57,6 +77,7 @@ NS_ASSUME_NONNULL_BEGIN
 // 设置用户profile, 用户的标签属性，可以用来设置标签实验
 // 必须在init之前调用，或者调用一次forceUpdateExps来更新策略
 -(void) setProfiles: (NSDictionary*) profiles;
+
 // 设置用户profile， key/value， 例如sexy:male, age:10
 -(void) setProfileWithKey:(NSString*) key value:(NSString*) val;
 
@@ -118,8 +139,6 @@ NS_ASSUME_NONNULL_BEGIN
 -(void) setLayerCodes:(NSArray*) layerCodes;
 // 设置渠道
 -(void) setChannelCode:(NSString*) channelCode;
-// 使用测试环境
--(void) setUseTest:(BOOL) isTest;
 // 设置请求超时时间
 -(void) setReqTimeout:(int) timeout;
 
@@ -137,6 +156,10 @@ NS_ASSUME_NONNULL_BEGIN
 -(RomaExp*) getExpByLayerCodeAndReport: (NSString*) layerCode;
 // 从缓存中获取分层Code的实验，但不会上报实验曝光
 -(RomaExp*) getExpByLayerCode: (NSString*) layerCode;
+
+// 用户上报通道，默认采用atta自建通道
++ (void)setEnableBeacon:(bool)enable __attribute__((deprecated("Use atta channel instead")));
++ (bool)getEnableBeacon __attribute__((deprecated("Use atta channel instead")));
 
 @end
 

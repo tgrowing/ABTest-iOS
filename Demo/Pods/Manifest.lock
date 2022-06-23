@@ -1,16 +1,16 @@
 PODS:
-  - tgpABTest (0.0.3)
+  - tgpABTest (0.0.4)
 
 DEPENDENCIES:
-  - tgpABTest (~> 0.0.2)
+  - tgpABTest (from `../`)
 
-SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
-    - tgpABTest
+EXTERNAL SOURCES:
+  tgpABTest:
+    :path: "../"
 
 SPEC CHECKSUMS:
-  tgpABTest: 949f854d1a6b7c1021e8ec487805e3ac5dd4e63e
+  tgpABTest: 1443b4c00a70fc440326ea46fd784e16d4212228
 
-PODFILE CHECKSUM: 48a71106b71dc77674a0e294fd5b380591976752
+PODFILE CHECKSUM: 4b134cac93e1dc35b19d6fa7c3a6dbf0982cc743
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.11.3
